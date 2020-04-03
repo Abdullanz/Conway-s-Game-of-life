@@ -1,17 +1,18 @@
+//*******************************************************************************************
+// Author: Abdullah Najjar
+// Description: John Conway's game (Game of Life) implementation, where I implementated as a
+// to be read from an input file and drew the structures to be generated using the StdDraw
+// library.
+// Date: 3 April, 2020
+// Version: 1.0
+// Bugs: 0
+//*******************************************************************************************
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.awt.Color;
 
 
-
-
-//*******************************************************************************************
-// Author: Abdullah Najjar
-// Description: Game of Life implementation --> John Conway's concept
-// Date: 14 March, 2020
-// Bugs: 0
-//*******************************************************************************************
 public class Life
 {
 
@@ -105,61 +106,68 @@ public class Life
    }
 
 
-	 //
+	 //Is occupied
    public boolean isOccupied(int r, int c)
 	 {
       return board[r][c] == Occupied;
    }
 
 
-	 //
+	 //This method is to count the neighbors
    private int countNeighbors(int r, int c)
 	 {
       int count = 0;
-//Rules
 
+      //Rules
       if((r-1) > 0 && (c-1) > 0)
 			{
          if(board[r-1][c-1] == Occupied || board[r-1][c-1] == Dying)
             ++count;
       }
 
+      //
       if((r-1) > 0)
 			{
          if(board[r-1][c] == Occupied || board[r-1][c] == Dying)
             ++count;
       }
 
+      //
       if((r-1) > 0 && (c+1) < board[r-1].length)
 			{
          if(board[r-1][c+1] == Occupied || board[r-1][c+1] == Dying)
             ++count;
       }
 
+      //
       if((c-1) > 0)
 			{
          if(board[r][c-1] == Occupied || board[r][c-1] == Dying)
             ++count;
       }
 
+      //
       if((c+1) < board[r].length)
 			{
          if(board[r][c+1] == Occupied || board[r][c+1] == Dying)
             ++count;
       }
 
+      //
       if((r+1) < board.length && (c-1) > 0)
 			{
          if(board[r+1][c-1] == Occupied || board[r+1][c-1] == Dying)
             ++count;
       }
 
+      //
       if((r+1) < board.length)
 			{
          if(board[r+1][c] == Occupied || board[r+1][c] == Dying)
             ++count;
       }
 
+      //
       if((r+1) < board.length && (c+1) < board[r+1].length)
 			{
          if(board[r+1][c+1] == Occupied || board[r+1][c+1] == Dying)
@@ -171,7 +179,7 @@ public class Life
 
 
 
-	 //
+	 //Method: To fill the board using an input file
    public void fillBoard(Scanner inputFile)
 	 {
       while(inputFile.hasNextInt())
@@ -184,7 +192,7 @@ public class Life
    }
 
 
-	 //
+	 //Method: Next Generation processing
    private void nextGeneration()
 	 {
 	      for(int i=0; i<board.length; ++i)
@@ -200,13 +208,14 @@ public class Life
 
 
 
-		//
+	 //Method: To play the game
    public void playGame()throws InterruptedException
 	 {
+
       boolean change = false;
 
-      do
-			{
+      //
+      do{
          drawBoard();
          change = false;
          int[][] next = new int[board.length][board[0].length];
@@ -266,7 +275,7 @@ public class Life
 
 
 
-	 //
+	 //Method:
    private void drawBoard()
 	 {
 
@@ -289,7 +298,7 @@ public class Life
 
 
 
-	 //
+	 //Method: To set the Canvas for the board
    private void setCanvas()
 	 {
 	      StdDraw.setXscale(0, 10 * board.length);
@@ -297,17 +306,15 @@ public class Life
 	   }
 
 
-	//Main method
+	//Main
 	public static void main(String[] args)throws InterruptedException
 	{
-		// TODO Auto-generated method stub
 
-	      System.out.println("Please enter input file:\n");
+	      System.out.println("Please enter input file: \n");
 	      Scanner Scan = new Scanner(System.in);
 	      String filename = Scan.nextLine();
 
-	      try
-	      {
+	      try{
 	         Scanner FinalScan = new Scanner(new File(filename));
 	         int rows = FinalScan.nextInt();
 	         int cols = FinalScan.nextInt();
@@ -321,7 +328,6 @@ public class Life
 	      }
 				catch (FileNotFoundException e)
 				{
-
 	      }//tryCatchBlock
 
 	}//main
