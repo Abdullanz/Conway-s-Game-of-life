@@ -1,4 +1,4 @@
-# Conway-s-Game-of-life
+# Game of Life
 
 
 ## Description
