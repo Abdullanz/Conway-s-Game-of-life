@@ -5,27 +5,27 @@
 // library.
 // Date: 3 April, 2020
 // Version: 1.0
-// Bugs: 0
+// Bugs: It dies after couple of generations, idk why?
 //*******************************************************************************************
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.awt.Color;
 
-
+//Public class for the game
 public class Life
 {
 
-	//States
+	//4 states: Free, Occupied, BeingBorn(in the next generation), or Dying(in the next generation).
    int Free = 1;
    int Occupied = 2;
    int BeingBorn = 3;
    int Dying = 4;
 
-	 //
-   int Size = 10;
-   int r,c;
-   int[][] board;//2D-Array
+	 //size of the board
+   int Size = 100;
+   int r,c; //To hold the values within a cell in the board
+   int[][] board;//2D-Array -> The board
 
 	 //Default Constructor
    public Life()
@@ -47,9 +47,9 @@ public class Life
 	 //To clear the board
    public void clearBoard()
 	 {
-      for(int i=0; i<board.length; ++i)
+      for(int i = 0; i < board.length; ++i)
 			{
-         for(int j=0; j<board[i].length; ++j)
+         for(int j = 0; j < board[i].length; ++j)
 				 {
             board[i][j] = Free;
          }
@@ -84,14 +84,14 @@ public class Life
    }
 
 
-	 //
+	 //Assign to BeingBorn state
    public boolean isBorn(int r, int c)
 	 {
       return board[r][c] == BeingBorn;
    }
 
 
-	 //
+	 //Assign to Free state
    public boolean isFree(int r, int c)
 	 {
       return board[r][c] == Free;
@@ -99,14 +99,14 @@ public class Life
 
 
 
-	 //
+	 //Assign to Dying state
    public boolean isDying(int r, int c)
 	 {
       return board[r][c] == Dying;
    }
 
 
-	 //Is occupied
+	 //Assign to Occupied state
    public boolean isOccupied(int r, int c)
 	 {
       return board[r][c] == Occupied;
@@ -195,9 +195,9 @@ public class Life
 	 //Method: Next Generation processing
    private void nextGeneration()
 	 {
-	      for(int i=0; i<board.length; ++i)
+	      for(int i = 0; i < board.length; ++i)
 				{
-	         for(int j=0; j<board[i].length; ++j)
+	         for(int j = 0; j < board[i].length; ++j)
 					 {
 	            if(board[i][j] == BeingBorn) board[i][j] = Occupied;
 
@@ -206,31 +206,28 @@ public class Life
 	      }
 	   }
 
-
-
 	 //Method: To play the game
    public void playGame()throws InterruptedException
 	 {
-
       boolean change = false;
 
-      //
-      do{
+      do
+      {
          drawBoard();
          change = false;
          int[][] next = new int[board.length][board[0].length];
 
-         for(int i=0; i<board.length; ++i)
+         for(int i = 0; i < board.length; ++i)
 				 {
-            for(int j=0; j<board[i].length; ++j)
+            for(int j = 0; j < board[i].length; ++j)
 						{
                next[i][j] = Free;
             }
          }
 
-         for(int i=0; i<board.length; ++i)
+         for(int i = 0; i < board.length; ++i)
 				 {
-            for(int j=0; j<board[i].length; ++j)
+            for(int j = 0; j < board[i].length; ++j)
 						{
                int n = countNeighbors(i, j);
                if(board[i][j] != Occupied && n == 3)
@@ -248,9 +245,9 @@ public class Life
             }
          }//forLoop
 
-         for(int i=0; i<board.length; ++i)
+         for(int i = 0; i < board.length; ++i)
 				 {
-            for(int j=0; j<board[i].length; ++j)
+            for(int j = 0; j < board[i].length; ++j)
 						{
                if(next[i][j] == Dying || next[i][j] == BeingBorn)
 							 {
@@ -263,7 +260,7 @@ public class Life
          nextGeneration();
          try
          {
-            Thread.sleep(7000);
+            Thread.sleep(600);
          }
 				 		catch(InterruptedException e)
          {
@@ -273,48 +270,43 @@ public class Life
       while(change);
    }
 
-
-
 	 //Method:
    private void drawBoard()
 	 {
-
       int x,y;
-      for(int i=0; i<board.length; ++i)
+
+      for(int i = 0; i < board.length; ++i)
 			{
 
-         for(int j=0; j<board[i].length; ++j)
+         for(int j = 0; j < board[i].length; ++j)
 				 {
             if(board[i][j] == Occupied) StdDraw.setPenColor(Color.GREEN);
             else StdDraw.setPenColor(Color.BLACK);
 
-            x = j * 10;
-            y = (10 * (board.length - i));
+            x = j * 100;
+            y = (100 * (board.length - i));
 
-            StdDraw.filledSquare(x,y,5);
+            StdDraw.filledSquare(x,y,50);
          }
       }
    }
 
-
-
 	 //Method: To set the Canvas for the board
    private void setCanvas()
 	 {
-	      StdDraw.setXscale(0, 10 * board.length);
-	      StdDraw.setYscale(0, 10 * board[0].length);
-	   }
-
+	      StdDraw.setXscale(0, 100 * board.length);
+	      StdDraw.setYscale(0, 100 * board[0].length);
+	 }
 
 	//Main
 	public static void main(String[] args)throws InterruptedException
 	{
-
-	      System.out.println("Please enter input file: \n");
+	      System.out.println("Please enter input file:");
 	      Scanner Scan = new Scanner(System.in);
 	      String filename = Scan.nextLine();
 
-	      try{
+	      try
+        {
 	         Scanner FinalScan = new Scanner(new File(filename));
 	         int rows = FinalScan.nextInt();
 	         int cols = FinalScan.nextInt();
@@ -324,12 +316,10 @@ public class Life
 	         life.fillBoard(FinalScan);
 	         life.playGame();
 	         FinalScan.close();
-
 	      }
 				catch (FileNotFoundException e)
 				{
+
 	      }//tryCatchBlock
-
 	}//main
-
 }//class
