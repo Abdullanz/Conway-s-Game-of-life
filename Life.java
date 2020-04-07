@@ -5,7 +5,7 @@
 // library.
 // Date: 3 April, 2020
 // Version: 1.0
-// Bugs: It dies after couple of generations, idk why?
+// Bugs: It dies after couple of generations, idk why? || Add comments to the interface file
 //*******************************************************************************************
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -27,15 +27,26 @@ public class Life
    int r,c; //To hold the values within a cell in the board
    int[][] board;//2D-Array -> The board
 
-	 //Default Constructor
+   /**
+    * Default Constructor
+    * @pre Board did not hold the size
+    * @post Board hold the size
+    * @return NA
+    **/
    public Life()
 	 {
       board = new int[Size][Size];
       clearBoard();
    }
 
-
-	 //Non-Default Constructor
+	 /**
+   * Non-Default Constructor
+   * @pre Board did not hold the values of r and c
+   * @post Board hold the values of r and c
+   * @param int r -> axis
+   * @param int c -> axis
+   * @return NA
+   **/
    public Life(int r, int c)
 	 {
       board = new int[r][c];
@@ -43,8 +54,13 @@ public class Life
       clearBoard();
    }
 
-
-	 //To clear the board
+   /**
+    * Method used to clear the board from the previous values of r and c
+    * @pre Board hold the values of r and c
+    * @post Board is cleared
+    * @param NA
+    * @return NA
+    **/
    public void clearBoard()
 	 {
       for(int i = 0; i < board.length; ++i)
@@ -57,6 +73,13 @@ public class Life
    }
 
 	 //Accessor for being Born
+   /**
+    * Method used to clear the board from the previous values of r and c
+    * @pre Board hold the values of r and c
+    * @post Board is cleared
+    * @param NA
+    * @return NA
+    **/
    public void setBorn(int r, int c)
 	 {
       board[r][c] = BeingBorn;
@@ -64,6 +87,13 @@ public class Life
 
 
 	 //Accessor for being Occupied
+   /**
+    * Method used to clear the board from the previous values of r and c
+    * @pre Board hold the values of r and c
+    * @post Board is cleared
+    * @param NA
+    * @return NA
+    **/
    public void setOccupied(int r, int c)
 	 {
       board[r][c] = Occupied;
@@ -71,6 +101,13 @@ public class Life
 
 
 	 //Accessor for Dying
+   /**
+    * Method used to clear the board from the previous values of r and c
+    * @pre Board hold the values of r and c
+    * @post Board is cleared
+    * @param NA
+    * @return NA
+    **/
    public void setDying(int r, int c)
 	 {
       board[r][c] = Dying;
@@ -78,6 +115,13 @@ public class Life
 
 
 	 //Accessor for being Free
+   /**
+    * Method used to clear the board from the previous values of r and c
+    * @pre Board hold the values of r and c
+    * @post Board is cleared
+    * @param NA
+    * @return NA
+    **/
    public void setFree(int r, int c)
 	 {
       board[r][c] = Free;
@@ -85,6 +129,13 @@ public class Life
 
 
 	 //Assign to BeingBorn state
+   /**
+    * Method used to clear the board from the previous values of r and c
+    * @pre Board hold the values of r and c
+    * @post Board is cleared
+    * @param NA
+    * @return NA
+    **/
    public boolean isBorn(int r, int c)
 	 {
       return board[r][c] == BeingBorn;
@@ -92,6 +143,13 @@ public class Life
 
 
 	 //Assign to Free state
+   /**
+    * Method used to clear the board from the previous values of r and c
+    * @pre Board hold the values of r and c
+    * @post Board is cleared
+    * @param NA
+    * @return NA
+    **/
    public boolean isFree(int r, int c)
 	 {
       return board[r][c] == Free;
@@ -100,6 +158,13 @@ public class Life
 
 
 	 //Assign to Dying state
+   /**
+    * Method used to clear the board from the previous values of r and c
+    * @pre Board hold the values of r and c
+    * @post Board is cleared
+    * @param NA
+    * @return NA
+    **/
    public boolean isDying(int r, int c)
 	 {
       return board[r][c] == Dying;
@@ -107,6 +172,13 @@ public class Life
 
 
 	 //Assign to Occupied state
+   /**
+    * Method used to clear the board from the previous values of r and c
+    * @pre Board hold the values of r and c
+    * @post Board is cleared
+    * @param NA
+    * @return NA
+    **/
    public boolean isOccupied(int r, int c)
 	 {
       return board[r][c] == Occupied;
