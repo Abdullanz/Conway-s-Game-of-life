@@ -6,6 +6,7 @@
 // Date: 3 April, 2020
 // Version: 1.0
 // Bugs: It dies after couple of generations, idk why? || Add comments to the interface file
+// Test using Junit testing and create a UML diagram for the game & make specification file.
 //*******************************************************************************************
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -186,6 +187,13 @@ public class Life
 
 
 	 //This method is to count the neighbors
+   /**
+    * Method used to clear the board from the previous values of r and c
+    * @pre Board hold the values of r and c
+    * @post Board is cleared
+    * @param NA
+    * @return NA
+    **/
    private int countNeighbors(int r, int c)
 	 {
       int count = 0;
@@ -252,6 +260,13 @@ public class Life
 
 
 	 //Method: To fill the board using an input file
+   /**
+    * Method used to clear the board from the previous values of r and c
+    * @pre Board hold the values of r and c
+    * @post Board is cleared
+    * @param NA
+    * @return NA
+    **/
    public void fillBoard(Scanner inputFile)
 	 {
       while(inputFile.hasNextInt())
@@ -265,6 +280,13 @@ public class Life
 
 
 	 //Method: Next Generation processing
+   /**
+    * Method used to clear the board from the previous values of r and c
+    * @pre Board hold the values of r and c
+    * @post Board is cleared
+    * @param NA
+    * @return NA
+    **/
    private void nextGeneration()
 	 {
 	      for(int i = 0; i < board.length; ++i)
@@ -279,6 +301,13 @@ public class Life
 	   }
 
 	 //Method: To play the game
+   /**
+    * Method used to clear the board from the previous values of r and c
+    * @pre Board hold the values of r and c
+    * @post Board is cleared
+    * @param NA
+    * @return NA
+    **/
    public void playGame()throws InterruptedException
 	 {
       boolean change = false;
@@ -343,6 +372,13 @@ public class Life
    }
 
 	 //Method:
+   /**
+    * Method used to clear the board from the previous values of r and c
+    * @pre Board hold the values of r and c
+    * @post Board is cleared
+    * @param NA
+    * @return NA
+    **/
    private void drawBoard()
 	 {
       int x,y;
@@ -364,6 +400,13 @@ public class Life
    }
 
 	 //Method: To set the Canvas for the board
+   /**
+    * Method used to clear the board from the previous values of r and c
+    * @pre Board hold the values of r and c
+    * @post Board is cleared
+    * @param NA
+    * @return NA
+    **/
    private void setCanvas()
 	 {
 	      StdDraw.setXscale(0, 100 * board.length);
@@ -371,6 +414,13 @@ public class Life
 	 }
 
 	//Main
+  /**
+   * Method used to clear the board from the previous values of r and c
+   * @pre Board hold the values of r and c
+   * @post Board is cleared
+   * @param NA
+   * @return NA
+   **/
 	public static void main(String[] args)throws InterruptedException
 	{
 	      System.out.println("Please enter input file:");

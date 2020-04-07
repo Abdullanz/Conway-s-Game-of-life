@@ -11,9 +11,6 @@ This game was invented by John Conway the great Computer Scientist and Mathemati
 3.	A cell will also die of overcrowding if it has 4 or more neighbors.
 4.	All other cells remain unchanged.
 
-## Design approach
-Currently following the Design By Contract (DCB) principles from the Pragmatic Programmer book. I believe this approach simplifies the process of reaching a clear documentation and testing
-
 ## Programming language
 Java (JDK 14)
 
