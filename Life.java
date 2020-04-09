@@ -16,22 +16,20 @@ import java.awt.Color;
 //Public class for the game
 public class Life implements GameOfLife
 {
+	//4 states
+   int Free = 1; //Free
+   int Occupied = 2; //Occupied
+   int BeingBorn = 3; //BeingBorn(in the next generation)
+   int Dying = 4; //Dying(in the next generation)
 
-	//4 states: Free, Occupied, BeingBorn(in the next generation), or Dying(in the next generation).
-   int Free = 1;
-   int Occupied = 2;
-   int BeingBorn = 3;
-   int Dying = 4;
-
-	 //size of the board
-   int Size = 100;
+   int Size = 100; 	 //size of the board
    int r,c; //To hold the values within a cell in the board
    int[][] board;//2D-Array -> The board
 
    /**
     * Default Constructor
-    * @pre Board did not hold the size
-    * @post Board hold the size
+    * #pre Board did not hold the size
+    * #post Board hold the size
     * @return NA
     */
    public Life()
@@ -42,11 +40,11 @@ public class Life implements GameOfLife
 
 	 /**
    * Non-Default Constructor
-   * @pre Board did not hold the values of r and c
-   * @post Board hold the values of r and c
-   * @param int r -> axis
-   * @param int c -> axis
+   * @param r integer
+   * @param c integer
    * @return NA
+   * #pre Board did not hold the values of r and c
+   * #post Board hold the values of r and c
    */
    public Life(int r, int c)
 	 {
@@ -128,11 +126,11 @@ public class Life implements GameOfLife
 
 
    /**
-    * This method is to count the neighbors
-    * @pre Board hold the values of r and c
-    * @post Board is cleared
-    * @param int r
-    * @param int c
+    * This method is to count the neighbors -> Moore's neighborhood
+    * @param r integer
+    * @param c integer
+    * PRE: Board hold the values of r and c
+    * POST: Board is cleared
     */
    private int countNeighbors(int r, int c)
 	 {
@@ -211,13 +209,12 @@ public class Life implements GameOfLife
    }
 
 
-	 //Method: Next Generation processing
    /**
-    * Method used to clear the board from the previous values of r and c
-    * @pre Board hold the values of r and c
-    * @post Board is cleared
+    * Method: Next Generation processing
     * @param NA
     * @return NA
+    * PRE: Board hold the values of r and c
+    * POST: Board is cleared
     */
    private void nextGeneration()
 	 {
@@ -232,13 +229,13 @@ public class Life implements GameOfLife
 	      }
 	   }
 
-	 //Method: To play the game
+
    /**
-    * Method used to clear the board from the previous values of r and c
-    * @pre Board hold the values of r and c
-    * @post Board is cleared
+    * To play the game
     * @param NA
     * @return NA
+    * PRE: Board hold the values of r and c
+    * POST: Board is cleared
     */
    public void playGame()throws InterruptedException
 	 {
@@ -303,13 +300,13 @@ public class Life implements GameOfLife
       while(change);
    }
 
-	 //Method:
+
    /**
     * Method used to clear the board from the previous values of r and c
-    * @pre Board hold the values of r and c
-    * @post Board is cleared
     * @param NA
     * @return NA
+    * PRE: Board hold the values of r and c
+    * POST: Board is cleared
     */
    private void drawBoard()
 	 {
@@ -331,13 +328,13 @@ public class Life implements GameOfLife
       }
    }
 
-	 //Method: To set the Canvas for the board
+
    /**
-    * Method used to clear the board from the previous values of r and c
-    * @pre Board hold the values of r and c
-    * @post Board is cleared
+    * Method: To set the Canvas for the board
     * @param NA
     * @return NA
+    * PRE: Board hold the values of r and c
+    * POST: Board is cleared
     */
    private void setCanvas()
 	 {
@@ -345,13 +342,9 @@ public class Life implements GameOfLife
 	      StdDraw.setYscale(0, 100 * board[0].length);
 	 }
 
-	//Main
+
   /**
-   * Method used to clear the board from the previous values of r and c
-   * @pre Board hold the values of r and c
-   * @post Board is cleared
-   * @param NA
-   * @return NA
+   * Main
    */
 	public static void main(String[] args)throws InterruptedException
 	{

@@ -17,101 +17,101 @@ public interface GameOfLife
 
   /**
    * Method used to clear the board from the previous values of r and c
-   * #pre Board hold the values of r and c
-   * #post Board is cleared
    * @param NA
    * @return NA
+   * PRE: Board hold the values of r and c
+   * POST: Board is cleared
    */
   public void clearBoard();
 
 
   /**
    * Accessor for being Born
-   * #pre Board hold the values of r and c in states other than isBorn
-   * #post Board hold the values of r and c in state of isBorn
-   * @param int r
-   * @param int c
+   * @param r Integer
+   * @param int Integer
+   * PRE: Board hold the values of r and c in states other than isBorn
+   * POST: Board hold the values of r and c in state of isBorn
    */
   public void setBorn(int r, int c);
 
 
   /**
    * Accessor for being Occupied
-   * #pre Board hold the values of r and c in states other than Occupied
-   * #post Board hold the values of r and c in state of Occupied
-   * @param int r
-   * @param int c
+   * @param r Integer
+   * @param c Integer
+   * PRE: Board hold the values of r and c in states other than Occupied
+   * POST: Board hold the values of r and c in state of Occupied
    */
   public void setOccupied(int r, int c);
 
 
   /**
    * Accessor for Dying
-   * #pre Board hold the values of r and c
-   * #post Board is cleared
-   * @param int r
-   * @param int c
+   * @param r Integer
+   * @param c Integer
+   * PRE: Board hold the values of r and c
+   * POST: Board is cleared
    */
   public void setDying(int r, int c);
 
 
   /**
    * Accessor for being Free
-   * #pre Board hold the values of r and c
-   * #post Board is cleared
-   * @param int r
-   * @param int c
+   * @param r Integer
+   * @param c Integer
+   * PRE: Board hold the values of r and c
+   * POST: Board is cleared
    */
   public void setFree(int r, int c);
 
 
   /**
    * Assign to BeingBorn state
-   * #pre Board hold the values of r and c
-   * #post Board is cleared
-   * @param int r
-   * @param int c
+   * @param r Integer
+   * @param c Integer
+   * PRE: Board hold the values of r and c
+   * POST: Board is cleared
    */
   public boolean isBorn(int r, int c);
 
 
   /**
    * Assign to Free state
-   * #pre Board hold the values of r and c
-   * #post Board is cleared
-   * @param int r
-   * @param int c
+   * @param r Integer
+   * @param c Integer
+   * PRE: Board hold the values of r and c
+   * POST: Board is cleared
    */
   public boolean isFree(int r, int c);
 
 
   /**
    * Method used to Assign to Dying state
-   * #pre Board hold the values of r and c alive
-   * #post The values of r and c are dead
-   * @param int r
-   * @param int c
+   * @param r Integer
+   * @param c Integer
    * @return NA
+   * PRE: Board hold the values of r and c alive
+   * POST: The values of r and c are dead
    */
   public boolean isDying(int r, int c);
 
 
   /**
    * Assign to Occupied state
-   * #pre Board hold the values of r and c
-   * #post Board is cleared
-   * @param int r
-   * @param int c
+   * @param r Integer
+   * @param c Integer
+   * PRE: Board hold the values of r and c
+   * POST: Board is cleared
    */
   public boolean isOccupied(int r, int c);
 
 
   /**
    * Method To fill the board using an input file
-   * #pre Board hold the values of r and c
-   * #post Board is cleared
    * @param NA
    * @return NA
+   * PRE: Board hold the values of r and c
+   * POST: Board is cleared
    */
   public void fillBoard(Scanner inputFile);
 
