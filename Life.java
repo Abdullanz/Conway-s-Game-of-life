@@ -356,8 +356,8 @@ public class Life implements GameOfLife
         {
 	         Scanner FinalScan = new Scanner(new File(filename));
 	         int rows = FinalScan.nextInt();
-	         int cols = FinalScan.nextInt();
-
+            int cols = FinalScan.nextInt();
+            
 	         Life life = new Life(rows, cols);
 	         life.setCanvas();
 	         life.fillBoard(FinalScan);
