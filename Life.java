@@ -369,4 +369,6 @@ public class Life implements GameOfLife
 
 	      }//tryCatchBlock
 	}//main
+
+
 }//class

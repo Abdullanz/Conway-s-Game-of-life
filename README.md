@@ -16,6 +16,10 @@ Java (JDK 14)
 
 ## Libraries
 
+''' java
+StdDraw
+AWT
+''' 
 
 ## Installation
 
@@ -33,6 +37,9 @@ Abdullah Najjar
 [MIT License](https://choosealicense.com/licenses/mit/)
 
 ## Project Glossary
-[Turing Complete]((https://choosealicense.com/licenses/mit/)): It is a
+[Turing Completeness](https://stackoverflow.com/questions/7284/what-is-turing-complete)
 
-[Cellular Automata]((https://choosealicense.com/licenses/mit/)): It is a
+[Cellular Automata](https://plato.stanford.edu/entries/cellular-automata/)
+
+
+

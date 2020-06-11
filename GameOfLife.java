@@ -9,7 +9,6 @@
 * Bugs: Add methods for inheritence and then add implements GameOfLife to the Life file
 */
 import java.util.Scanner;
-import java.io.File;
 
 public interface GameOfLife
 {
