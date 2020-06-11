@@ -11,11 +11,10 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
-import java.awt.Color;
+import java.awt.*;
 
 //Public class for the game
-public class Life implements GameOfLife
-{
+public class Life implements GameOfLife {
 	//4 states
    int Free = 1; //Free
    int Occupied = 2; //Occupied
@@ -32,8 +31,7 @@ public class Life implements GameOfLife
     * #post Board hold the size
     * @return NA
     */
-   public Life()
-	 {
+   public Life() {
       board = new int[Size][Size];
       clearBoard();
    }
@@ -46,8 +44,7 @@ public class Life implements GameOfLife
    * #pre Board did not hold the values of r and c
    * #post Board hold the values of r and c
    */
-   public Life(int r, int c)
-	 {
+   public Life(int r, int c) {
       board = new int[r][c];
 
       clearBoard();
@@ -57,8 +54,7 @@ public class Life implements GameOfLife
     * Method used to clear the board from the previous values of r and c
     **/
    @Override
-   public void clearBoard()
-	 {
+   public void clearBoard() {
       for(int i = 0; i < board.length; ++i)
 			{
          for(int j = 0; j < board[i].length; ++j)
@@ -70,57 +66,49 @@ public class Life implements GameOfLife
 
 
    @Override 	 //Accessor for being Born
-   public void setBorn(int r, int c)
-	 {
+   public void setBorn(int r, int c) {
       board[r][c] = BeingBorn;
    }
 
 
    @Override 	 //Accessor for being Occupied
-   public void setOccupied(int r, int c)
-	 {
+   public void setOccupied(int r, int c) {
       board[r][c] = Occupied;
    }
 
 
    @Override 	 //Accessor for Dying
-   public void setDying(int r, int c)
-	 {
+   public void setDying(int r, int c) {
       board[r][c] = Dying;
    }
 
 
    @Override 	 //Accessor for being Free
-   public void setFree(int r, int c)
-	 {
+   public void setFree(int r, int c) {
       board[r][c] = Free;
    }
 
 
    @Override 	 //Assign to BeingBorn state
-   public boolean isBorn(int r, int c)
-	 {
+   public boolean isBorn(int r, int c) {
       return board[r][c] == BeingBorn;
    }
 
 
    @Override 	 //Assign to Free state
-   public boolean isFree(int r, int c)
-	 {
+   public boolean isFree(int r, int c) {
       return board[r][c] == Free;
    }
 
 
    @Override    //Assign to Dying state
-   public boolean isDying(int r, int c)
-	 {
+   public boolean isDying(int r, int c) {
       return board[r][c] == Dying;
    }
 
 
    @Override 	 //Assign to Occupied state
-   public boolean isOccupied(int r, int c)
-	 {
+   public boolean isOccupied(int r, int c) {
       return board[r][c] == Occupied;
    }
 
@@ -132,62 +120,53 @@ public class Life implements GameOfLife
     * PRE: Board hold the values of r and c
     * POST: Board is cleared
     */
-   private int countNeighbors(int r, int c)
-	 {
+   private int countNeighbors(int r, int c) {
       int count = 0;
 
       //Rules
-      if((r-1) > 0 && (c-1) > 0)
-			{
+      if((r-1) > 0 && (c-1) > 0) {
          if(board[r-1][c-1] == Occupied || board[r-1][c-1] == Dying)
             ++count;
       }
 
       //
-      if((r-1) > 0)
-			{
+      if((r-1) > 0) {
          if(board[r-1][c] == Occupied || board[r-1][c] == Dying)
             ++count;
       }
 
       //
-      if((r-1) > 0 && (c+1) < board[r-1].length)
-			{
+      if((r-1) > 0 && (c+1) < board[r-1].length) {
          if(board[r-1][c+1] == Occupied || board[r-1][c+1] == Dying)
             ++count;
       }
 
       //
-      if((c-1) > 0)
-			{
+      if((c-1) > 0) {
          if(board[r][c-1] == Occupied || board[r][c-1] == Dying)
             ++count;
       }
 
       //
-      if((c+1) < board[r].length)
-			{
+      if((c+1) < board[r].length) {
          if(board[r][c+1] == Occupied || board[r][c+1] == Dying)
             ++count;
       }
 
       //
-      if((r+1) < board.length && (c-1) > 0)
-			{
+      if((r+1) < board.length && (c-1) > 0) {
          if(board[r+1][c-1] == Occupied || board[r+1][c-1] == Dying)
             ++count;
       }
 
       //
-      if((r+1) < board.length)
-			{
+      if((r+1) < board.length) {
          if(board[r+1][c] == Occupied || board[r+1][c] == Dying)
             ++count;
       }
 
       //
-      if((r+1) < board.length && (c+1) < board[r+1].length)
-			{
+      if((r+1) < board.length && (c+1) < board[r+1].length) {
          if(board[r+1][c+1] == Occupied || board[r+1][c+1] == Dying)
             ++count;
       }
@@ -197,10 +176,9 @@ public class Life implements GameOfLife
 
 
    @Override 	 //Method: To fill the board using an input file
-   public void fillBoard(Scanner inputFile)
-	 {
-      while(inputFile.hasNextInt())
-			{
+   public void fillBoard(Scanner inputFile) {
+
+      while(inputFile.hasNextInt()) {
          int r = inputFile.nextInt();
          int c = inputFile.nextInt();
 
@@ -216,12 +194,12 @@ public class Life implements GameOfLife
     * PRE: Board hold the values of r and c
     * POST: Board is cleared
     */
-   private void nextGeneration()
-	 {
-	      for(int i = 0; i < board.length; ++i)
-				{
-	         for(int j = 0; j < board[i].length; ++j)
-					 {
+   private void nextGeneration() {
+
+	      for(int i = 0; i < board.length; ++i) {
+
+	         for(int j = 0; j < board[i].length; ++j) {
+
 	            if(board[i][j] == BeingBorn) board[i][j] = Occupied;
 
 	            if(board[i][j] == Dying) board[i][j] = Free;
@@ -237,50 +215,45 @@ public class Life implements GameOfLife
     * PRE: Board hold the values of r and c
     * POST: Board is cleared
     */
-   public void playGame()throws InterruptedException
-	 {
+   public void playGame()throws InterruptedException {
       boolean change = false;
 
-      do
-      {
+      do {
          drawBoard();
          change = false;
          int[][] next = new int[board.length][board[0].length];
 
-         for(int i = 0; i < board.length; ++i)
-				 {
-            for(int j = 0; j < board[i].length; ++j)
-						{
+         for(int i = 0; i < board.length; ++i) {
+
+            for(int j = 0; j < board[i].length; ++j) {
+
                next[i][j] = Free;
             }
          }
 
-         for(int i = 0; i < board.length; ++i)
-				 {
-            for(int j = 0; j < board[i].length; ++j)
-						{
+         for(int i = 0; i < board.length; ++i) {
+
+            for(int j = 0; j < board[i].length; ++j) {
+
                int n = countNeighbors(i, j);
-               if(board[i][j] != Occupied && n == 3)
-							 {
+
+               if(board[i][j] != Occupied && n == 3) {
                   next[i][j] = BeingBorn;
                }
-               else if(board[i][j] == Occupied && (n > 3 || n < 2))
-							 {
+               else if(board[i][j] == Occupied && (n > 3 || n < 2)) {
                   next[i][j] = Dying;
                }
-               else if(board[i][j] == Occupied && (n > 3 || n < 2))
-							 {
+               else if(board[i][j] == Occupied && (n > 3 || n < 2)) {
                   next[i][j] = Dying;
                }
             }
          }//forLoop
 
-         for(int i = 0; i < board.length; ++i)
-				 {
-            for(int j = 0; j < board[i].length; ++j)
-						{
-               if(next[i][j] == Dying || next[i][j] == BeingBorn)
-							 {
+         for(int i = 0; i < board.length; ++i) {
+
+            for(int j = 0; j < board[i].length; ++j) {
+
+               if(next[i][j] == Dying || next[i][j] == BeingBorn) {
                   change = true;
                   board[i][j] = next[i][j];
                }
@@ -288,12 +261,11 @@ public class Life implements GameOfLife
          }//forLoop
 
          nextGeneration();
-         try
-         {
-            Thread.sleep(600);
+         //try-catch loop
+         try {
+            Thread.sleep(6000);
          }
-				 		catch(InterruptedException e)
-         {
+			catch(InterruptedException e) {
             e.printStackTrace();
          }
       }
@@ -308,15 +280,13 @@ public class Life implements GameOfLife
     * PRE: Board hold the values of r and c
     * POST: Board is cleared
     */
-   private void drawBoard()
-	 {
+   private void drawBoard() {
       int x,y;
 
-      for(int i = 0; i < board.length; ++i)
-			{
+      for(int i = 0; i < board.length; ++i) {
 
-         for(int j = 0; j < board[i].length; ++j)
-				 {
+         for(int j = 0; j < board[i].length; ++j) {
+
             if(board[i][j] == Occupied) StdDraw.setPenColor(Color.GREEN);
             else StdDraw.setPenColor(Color.BLACK);
 
@@ -336,8 +306,7 @@ public class Life implements GameOfLife
     * PRE: Board hold the values of r and c
     * POST: Board is cleared
     */
-   private void setCanvas()
-	 {
+   private void setCanvas() {
 	      StdDraw.setXscale(0, 100 * board.length);
 	      StdDraw.setYscale(0, 100 * board[0].length);
 	 }
@@ -346,14 +315,16 @@ public class Life implements GameOfLife
   /**
    * Main
    */
-	public static void main(String[] args)throws InterruptedException
-	{
-	      System.out.println("Please enter input file:");
-	      Scanner Scan = new Scanner(System.in);
-	      String filename = Scan.nextLine();
+	public static void main(String[] args)throws InterruptedException {
 
-	      try
-        {
+      System.out.println("Enter input file: ");
+      
+	   Scanner Scan = new Scanner(System.in);
+	   String filename = Scan.nextLine();
+       Scan.close();
+
+         //try-catch loop
+	      try {
 	         Scanner FinalScan = new Scanner(new File(filename));
 	         int rows = FinalScan.nextInt();
             int cols = FinalScan.nextInt();
@@ -364,8 +335,7 @@ public class Life implements GameOfLife
 	         life.playGame();
 	         FinalScan.close();
 	      }
-				catch (FileNotFoundException e)
-				{
+			catch (FileNotFoundException e) {
 
 	      }//tryCatchBlock
 	}//main

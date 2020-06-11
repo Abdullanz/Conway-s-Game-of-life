@@ -1,5 +1,5 @@
 # Game of Life
-A simple implementation of Conway's Game Of Life
+A simple implementation of Conway's Game Of Life. This implementation constrcuts a Glider structure.
 
 ## Description
 This game was invented by John Conway the great Computer Scientist and Mathematician, where it is now one of the most famous works in the field of Cellular Automata, and one of the first games ever to be ran into a copmuter. It is a no-player game as Conway said, and it can generate sophistcated patterns out of 4 simple rules.
