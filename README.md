@@ -16,15 +16,17 @@ Java (JDK 14)
 
 ## Libraries
 
-```Java
 StdDraw
+
 AWT
-```
+
 
 ## How To Run
 
 javac Life.java
+
 java Life
+
 input.txt
 
 ## Author
